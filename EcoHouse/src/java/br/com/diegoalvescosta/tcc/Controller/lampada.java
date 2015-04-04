@@ -20,20 +20,26 @@ public class lampada {
    
     public lampada() {
         
+        
     }
     
     public void Ligar() throws InterruptedException {
         iniciarConexao();
         Thread.sleep(1000);
         enviarDados(verdeON);
-        serialPort.close();
+        Thread.sleep(1000);
+        enviarDados(amareloON);
+        Thread.sleep(1000);
+        enviarDados(vermelhoON);
+        Thread.sleep(1000);
+        
+        
     }
     
     public void Desligar() throws InterruptedException {
-        iniciarConexao();
-        Thread.sleep(1000);
-        enviarDados(verdeOFF);
+        
         serialPort.close();
+       
     }
     
     
