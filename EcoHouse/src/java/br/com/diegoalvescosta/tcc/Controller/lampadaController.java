@@ -15,10 +15,10 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class lampada {
+public class lampadaController {
 
    
-    public lampada() {
+    public lampadaController() {
         
         
     }
@@ -33,13 +33,12 @@ public class lampada {
         enviarDados(vermelhoON);
         Thread.sleep(1000);
         
-        
     }
     
-    public void Desligar() throws InterruptedException {
+    public void Desligar() throws InterruptedException{
         
-        serialPort.close();
-       
+        
+        
     }
     
     
@@ -98,7 +97,5 @@ public class lampada {
         } catch (IOException ex) {
             
         }
-        
     }
-    
 }
