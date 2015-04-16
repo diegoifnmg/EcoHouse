@@ -1,5 +1,6 @@
 package br.com.diegoalvescosta.tcc.Controller;
 
+
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import static java.awt.image.ImageObserver.ERROR;
