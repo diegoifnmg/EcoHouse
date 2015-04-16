@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.diegoalvescosta.tcc.DomainModel;
 
 import java.io.Serializable;
@@ -50,7 +45,18 @@ public class Pessoa implements Serializable {
 
     @Column(name = "senha", length = 255)
     private String senha;
+    
+    @Column(name = "email", length = 255)
+    private String email;
 
+    @Column(name = "telefone", length = 255)
+    private String telefone;
+    
+    public Pessoa() {
+  
+    }
+    
+    
     public Pessoa(Long id, String nome, String cpf, String rg, String sexo, Date datanasc, String login, String senha) {
         this.id = id;
         this.nome = nome;
@@ -62,14 +68,6 @@ public class Pessoa implements Serializable {
         this.senha = senha;
     }
 
-    public Pessoa() {
-    
-        
-    
-    }
-    
-    
-    
     
     public Long getId() {
         return id;
@@ -178,8 +176,6 @@ public class Pessoa implements Serializable {
         }
         return true;
     }
-
-    
 
     @Override
     public String toString() {
