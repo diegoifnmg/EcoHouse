@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+        <ui:composition template="./global.xhtml">
+
+            <ui:define name="content">
+
+                <p:growl id="msgs" showDetail="true" />
+
+                <p:tabView>
+                    <p:tab title="Pessoa">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:growl id="mensagens" />
+                            <p:panelGrid columns="2">
+                                <f:facet name="header">
+                                    Cadastro Pessoa
+                                </f:facet>
+                                
+                                <p:outputLabel for="login" value="Login:" />
+                                <p:inputText id="login" value="#{pessoaController.entidade.login}"/>
+                                <p:outputLabel for="senha" value="Senha" />
+                                <p:inputText id="senha" value="#{pessoaController.entidade.senha}" 
+                                                    required="true" requiredMessage="Este campo é obrigatorio"/>
+                                <p:outputLabel for="nome" value="Nome:" />
+                                <p:inputText id="nome" value="#{pessoaController.entidade.nome}" 
+                                                   required="true" requiredMessage="Este campo é obrigatorio"/>
+                                <p:outputLabel for="cpf" value="CPF:" />
+                                <p:inputText id="cpf" value="#{pessoaController.entidade.cpf}"/>
+                                <p:outputLabel for="rg" value="RG:" />
+                                <p:inputText id="rg" value="#{pessoaController.entidade.rg}"/>
+                                <p:outputLabel for="sexo" value="Sexo:"/>
+                                <p:selectOneMenu id="sexo" value="#{pessoaController.entidade.sexo}"
+                                                 required="true" requiredMessage="Campo sexo é obrigatorio">
+                                    <f:selectItem itemLabel="Masculino" itemValue="M" />
+                                    <f:selectItem itemLabel="Feminino" itemValue="F" />
+                                </p:selectOneMenu>
+                                
+                                
+                                <p:outputLabel for="dataNasc" value="Data Nascimento" />
+                                <p:calendar id="dataNasc" value="#{pessoaController.entidade.datanasc}" pattern="dd-MM-yyyy" mask="true"
+                                            required="true" requiredMessage="Campo Data Nascimento é obrigatorio"/>
+                              
+                                <f:facet name="footer">
+                                    <p:commandButton value="Salvar" onclick="msgSalvar.show();"/>
+                                    <p:commandButton value="Apagar" onclick="msgApagar.show();"/>
+                                    <p:commandButton ajax="false" immediate="true" value="Voltar" action="listagemPessoa.xhtml"/>
+                                </f:facet>
+                            </p:panelGrid>
+
+                            <p:confirmDialog message="Deseja realmente salvar as alterações?" header="Confirmação" severity="alert"
+                                             widgetVar="msgSalvar" >
+                                <p:commandButton ajax="false" value="Sim" action="#{pessoaController.salvar()}"/>
+                                <p:commandButton value="Não" onclick="msgSalvar.hide();" />
+                            </p:confirmDialog>
+
+                            <p:confirmDialog message="Deseja realmente apagar o registro?" header="Confirmação" severity="alert"
+                                             widgetVar="msgApagar" >
+                                <p:commandButton ajax="false" value="Sim" action="#{pessoaController.salvar()}"/>
+                                <p:commandButton value="Não" onclick="msgApagar.hide();" />
+                            </p:confirmDialog>
+
+                        </h:panelGrid>
+                    </p:tab>
+                    </p:tabView>
+                    
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

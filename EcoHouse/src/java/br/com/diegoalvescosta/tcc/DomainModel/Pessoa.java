@@ -20,6 +20,25 @@ import javax.persistence.TemporalType;
 @Entity
 @Inheritance(strategy= InheritanceType.JOINED)
 public class Pessoa implements Serializable {
+    
+    public Pessoa() {
+  
+    }
+    
+    
+    public Pessoa(Long id, String nome, String cpf, String rg, String sexo, Date datanasc, String login, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.sexo = sexo;
+        this.datanasc = datanasc;
+        this.login = login;
+        this.senha = senha;
+    }
+    
+    
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,21 +71,7 @@ public class Pessoa implements Serializable {
     @Column(name = "telefone", length = 255)
     private String telefone;
     
-    public Pessoa() {
-  
-    }
     
-    
-    public Pessoa(Long id, String nome, String cpf, String rg, String sexo, Date datanasc, String login, String senha) {
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.sexo = sexo;
-        this.datanasc = datanasc;
-        this.login = login;
-        this.senha = senha;
-    }
 
     
     public Long getId() {
@@ -132,7 +137,22 @@ public class Pessoa implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
     
     @Override
     public int hashCode() {
