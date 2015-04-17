@@ -5,6 +5,7 @@
  */
 package br.com.diegoalvescosta.tcc.Infraestrutura;
 
+import br.com.diegoalvescosta.tcc.DomainModel.IPessoaRepositorio;
 import br.com.diegoalvescosta.tcc.DomainModel.Pessoa;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -15,7 +16,7 @@ import javax.persistence.Query;
  * @author diego-dell
  */
 @Stateless
-public class PessoaDao extends GenericoDAO<Pessoa>{
+public class PessoaDao extends GenericoDAO<Pessoa> implements IPessoaRepositorio{
 
     
     public PessoaDao() {

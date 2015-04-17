@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  */
 public abstract class GenericoDAO<T> {
 
-    @PersistenceContext(name = "ECOHOUSEPU")
+    @PersistenceContext(name = "EcoHousePU")
     protected EntityManager manager;
     private Class tipo;
 

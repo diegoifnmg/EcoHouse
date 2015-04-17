@@ -64,10 +64,37 @@
                                 <p:commandButton ajax="false" value="Sim" action="#{pessoaController.salvar()}"/>
                                 <p:commandButton value="Não" onclick="msgApagar.hide();" />
                             </p:confirmDialog>
-
+                    
                         </h:panelGrid>
                     </p:tab>
-                    </p:tabView>
+                        <p:tab title="Telefone">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:growl id="mensagens" />
+                            <p:panelGrid columns="2">
+                                <f:facet name="header">
+                                    Telefone
+                                </f:facet>
+                                
+                                <p:outputLabel for="phone" value="Telefone:" />
+                                <p:inputMask id="phone" value="#{pessoaController.entidade.telefone}" mask="(99) 9999-9999"
+                                             required="true" requiredMessage="Campo telefone é obrigatorio"/>
+                            </p:panelGrid>
+                        </h:panelGrid>
+                    </p:tab>
+                        
+                    <p:tab title="Email">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:growl id="mensagens" />
+                            <p:panelGrid columns="2">
+                                <f:facet name="header">
+                                    Email
+                                </f:facet>
+                                Email: <p:inputText value="#{pessoaController.entidade.email}" 
+                                                    required="true" requiredMessage="Campo e-mail é obrigatorio"/>
+                            </p:panelGrid>
+                        </h:panelGrid>
+                    </p:tab>
+                </p:tabView>
                     
 
             </ui:define>

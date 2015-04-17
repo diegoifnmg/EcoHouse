@@ -14,6 +14,7 @@
                 <h:form>
                     <p:commandButton action="#{lampadaController.Ligar()}" value="Acender" />
                     <p:commandButton action="#{lampadaController.Desligar()}" value="Desligar" />
+                    <p:commandButton ajax="false" value="Nova Pessoa" icon="ui-icon-arrowreturnthick-1-e" action="#{pessoaController.novo()}" />
                      
                 </h:form>                         
             </ui:define>

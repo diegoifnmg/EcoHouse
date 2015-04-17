@@ -5,10 +5,13 @@
  */
 package br.com.diegoalvescosta.tcc.DomainModel;
 
+import javax.ejb.Local;
+
 /**
  *
  * @author diego-dell
  */
+@Local
 public interface IPessoaRepositorio extends RepositorioGenerico<Pessoa> {
     
 }

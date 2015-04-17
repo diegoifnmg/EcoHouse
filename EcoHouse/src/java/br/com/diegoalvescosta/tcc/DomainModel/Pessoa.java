@@ -18,26 +18,7 @@ import javax.persistence.TemporalType;
  * @author diego-dell
  */
 @Entity
-@Inheritance(strategy= InheritanceType.JOINED)
 public class Pessoa implements Serializable {
-    
-    public Pessoa() {
-  
-    }
-    
-    
-    public Pessoa(Long id, String nome, String cpf, String rg, String sexo, Date datanasc, String login, String senha) {
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.sexo = sexo;
-        this.datanasc = datanasc;
-        this.login = login;
-        this.senha = senha;
-    }
-    
-    
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -72,8 +53,27 @@ public class Pessoa implements Serializable {
     private String telefone;
     
     
-
+    public Pessoa() {
+        this.nome = "";
+        this.sexo = "";
+        this.datanasc = new Date();
+        this.login = "";
+        this.senha = "";
+        this.email = "";
+        this.telefone = "";  
+    }
     
+    public Pessoa(Long id, String nome, String cpf, String rg, String sexo, Date datanasc, String login, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.sexo = sexo;
+        this.datanasc = datanasc;
+        this.login = login;
+        this.senha = senha;
+    }
+
     public Long getId() {
         return id;
     }
