@@ -27,31 +27,25 @@ public class lampadaController {
     public void Ligar() throws InterruptedException {
         iniciarConexao();
         Thread.sleep(1000);
-        enviarDados(verdeON);
+        enviarDados(luzQuartoON);
         Thread.sleep(1000);
-        enviarDados(amareloON);
-        Thread.sleep(1000);
-        enviarDados(vermelhoON);
-        Thread.sleep(1000);
-        
+        serialPort.close();
     }
     
     public void Desligar() throws InterruptedException{
-        
-        
-        
+        iniciarConexao();
+        Thread.sleep(1000);
+        enviarDados(luzQuartoOFF);
+        Thread.sleep(1000);
+        serialPort.close();
     }
     
     
     //Envio de dados para arduino
-    private static final String verdeOFF = "0";
-    private static final String verdeON = "1";
+
+    private static final String luzQuartoOFF = "2";
+    private static final String luzQuartoON = "3";
     
-    private static final String amareloOFF = "2";
-    private static final String amareloON = "3";
-    
-    private static final String vermelhoOFF = "4";
-    private static final String vermelhoON = "5";
     
     //Variaveis de Conexao
     private OutputStream output = null;
