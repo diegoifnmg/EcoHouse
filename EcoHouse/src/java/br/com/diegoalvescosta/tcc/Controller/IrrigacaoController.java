@@ -16,10 +16,10 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class Irrigacao {
+public class IrrigacaoController {
 
    
-    public Irrigacao() {
+    public IrrigacaoController() {
         
         
     }
