@@ -12,10 +12,19 @@
         <ui:composition template="./global.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p:commandButton action="#{lampadaController.Ligar()}" value="Acender" />
-                    <p:commandButton action="#{lampadaController.Desligar()}" value="Desligar" />
+                    <p:layoutUnit position="center">
+                    Lampada Quarto
+                    <p:commandButton action="#{lampadaController.LigarQuarto()}" value="ON" />
+                    <p:commandButton action="#{lampadaController.DesligarQuarto()}" value="OFF" />
                     <p:commandButton ajax="false" value="Nova Pessoa" icon="ui-icon-arrowreturnthick-1-e" action="#{pessoaController.novo()}" />
-                     
+                    </p:layoutUnit>
+                    
+                    <p:layoutUnit position="center">
+                    Irrigação Jardim
+                    <p:commandButton action="#{irrigacao.LigarIrrigacao()}" value="ON" />
+                    <p:commandButton action="#{irrigacao.DesligarIrrigacao()}" value="OFF" />
+                    </p:layoutUnit>
+                    
                 </h:form>                         
             </ui:define>
         </ui:composition>

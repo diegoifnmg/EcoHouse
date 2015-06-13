@@ -16,26 +16,26 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class lampadaController {
+public class Irrigacao {
 
    
-    public lampadaController() {
+    public Irrigacao() {
         
         
     }
     
-    public void LigarQuarto() throws InterruptedException {
+    public void LigarIrrigacao() throws InterruptedException {
         iniciarConexao();
         Thread.sleep(1000);
-        enviarDados(luzQuartoON);
+        enviarDados(irrigacaoON);
         Thread.sleep(1000);
         serialPort.close();
     }
     
-    public void DesligarQuarto() throws InterruptedException{
+    public void DesligarIrrigacao() throws InterruptedException{
         iniciarConexao();
         Thread.sleep(1000);
-        enviarDados(luzQuartoOFF);
+        enviarDados(irrigacaoOFF);
         Thread.sleep(1000);
         serialPort.close();
     }
@@ -43,8 +43,9 @@ public class lampadaController {
     
     //Envio de dados para arduino
 
-    private static final String luzQuartoOFF = "2";
-    private static final String luzQuartoON = "3";
+    private static final String irrigacaoOFF = "4";
+    private static final String irrigacaoON = "5";
+    
     
     
     //Variaveis de Conexao
