@@ -2,16 +2,12 @@ package br.com.diegoalvescosta.tcc.DomainModel;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -37,8 +33,8 @@ public class Pessoa implements Serializable {
     @Column(name = "sexo", length = 1)
     private String sexo;
 
-    @Temporal(TemporalType.DATE)
-    private Date datanasc;
+    //@Temporal(TemporalType.DATE)
+    //private Date datanasc;
 
     @Column(name = "login", length = 255)
     private String login;
@@ -54,25 +50,24 @@ public class Pessoa implements Serializable {
     
     
     public Pessoa() {
-        this.nome = "";
-        this.sexo = "";
-        this.datanasc = new Date();
-        this.login = "";
-        this.senha = "";
-        this.email = "";
-        this.telefone = "";  
+        
     }
-    
-    public Pessoa(Long id, String nome, String cpf, String rg, String sexo, Date datanasc, String login, String senha) {
+
+    public Pessoa(Long id, String nome, String cpf, String rg, String sexo, Date datanasc, String login, String senha, String email, String telefone) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.sexo = sexo;
-        this.datanasc = datanasc;
+        //this.datanasc = datanasc;
         this.login = login;
         this.senha = senha;
+        this.email = email;
+        this.telefone = telefone;
     }
+    
+
+    
 
     public Long getId() {
         return id;
@@ -114,14 +109,14 @@ public class Pessoa implements Serializable {
         this.sexo = sexo;
     }
 
-    public Date getDatanasc() {
+    /*public Date getDatanasc() {
         return datanasc;
     }
 
     public void setDatanasc(Date datanasc) {
         this.datanasc = datanasc;
     }
-
+    */
     public String getLogin() {
         return login;
     }
@@ -153,7 +148,7 @@ public class Pessoa implements Serializable {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -162,40 +157,19 @@ public class Pessoa implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Pessoa)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Pessoa other = (Pessoa) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        if (!Objects.equals(this.cpf, other.cpf)) {
-            return false;
-        }
-        if (!Objects.equals(this.rg, other.rg)) {
-            return false;
-        }
-        if (!Objects.equals(this.sexo, other.sexo)) {
-            return false;
-        }
-        if (!Objects.equals(this.datanasc, other.datanasc)) {
-            return false;
-        }
-        if (!Objects.equals(this.login, other.login)) {
-            return false;
-        }
-        if (!Objects.equals(this.senha, other.senha)) {
+        Pessoa other = (Pessoa) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
+    
+   
 
     @Override
     public String toString() {

@@ -24,28 +24,26 @@
                                 
                                 <p:outputLabel for="login" value="Login:" />
                                 <p:inputText id="login" value="#{pessoaController.entidade.login}"/>
+                                
                                 <p:outputLabel for="senha" value="Senha" />
-                                <p:inputText id="senha" value="#{pessoaController.entidade.senha}" 
-                                                    required="true" requiredMessage="Este campo é obrigatorio"/>
+                                <p:inputText id="senha" value="#{pessoaController.entidade.senha}"/>
+                                
                                 <p:outputLabel for="nome" value="Nome:" />
-                                <p:inputText id="nome" value="#{pessoaController.entidade.nome}" 
-                                                   required="true" requiredMessage="Este campo é obrigatorio"/>
+                                <p:inputText id="nome" value="#{pessoaController.entidade.nome}"/>
+                                
                                 <p:outputLabel for="cpf" value="CPF:" />
                                 <p:inputText id="cpf" value="#{pessoaController.entidade.cpf}"/>
+                                
                                 <p:outputLabel for="rg" value="RG:" />
                                 <p:inputText id="rg" value="#{pessoaController.entidade.rg}"/>
+                                
                                 <p:outputLabel for="sexo" value="Sexo:"/>
-                                <p:selectOneMenu id="sexo" value="#{pessoaController.entidade.sexo}"
-                                                 required="true" requiredMessage="Campo sexo é obrigatorio">
+                                <p:selectOneMenu id="sexo" value="#{pessoaController.entidade.sexo}">
                                     <f:selectItem itemLabel="Masculino" itemValue="M" />
                                     <f:selectItem itemLabel="Feminino" itemValue="F" />
                                 </p:selectOneMenu>
                                 
                                 
-                                <p:outputLabel for="dataNasc" value="Data Nascimento" />
-                                <p:calendar id="dataNasc" value="#{pessoaController.entidade.datanasc}" pattern="dd-MM-yyyy" mask="true"
-                                            required="true" requiredMessage="Campo Data Nascimento é obrigatorio"/>
-                              
                                 <f:facet name="footer">
                                     <p:commandButton value="Salvar" onclick="msgSalvar.show();"/>
                                     <p:commandButton value="Apagar" onclick="msgApagar.show();"/>
@@ -76,8 +74,7 @@
                                 </f:facet>
                                 
                                 <p:outputLabel for="phone" value="Telefone:" />
-                                <p:inputMask id="phone" value="#{pessoaController.entidade.telefone}" mask="(99) 9999-9999"
-                                             required="true" requiredMessage="Campo telefone é obrigatorio"/>
+                                <p:inputMask id="phone" value="#{pessoaController.entidade.telefone}" mask="(99) 9999-9999"/>
                             </p:panelGrid>
                         </h:panelGrid>
                     </p:tab>

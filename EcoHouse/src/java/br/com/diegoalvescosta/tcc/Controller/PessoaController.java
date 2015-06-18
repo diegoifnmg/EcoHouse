@@ -6,12 +6,12 @@ package br.com.diegoalvescosta.tcc.Controller;
  */
 
 import br.com.diegoalvescosta.tcc.DomainModel.Pessoa;
-import br.com.diegoalvescosta.tcc.Infraestrutura.PessoaDao;
-import javax.inject.Named;
+import br.com.diegoalvescosta.tcc.Infraestrutura.PessoaDAO;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
@@ -19,7 +19,7 @@ import javax.faces.context.FacesContext;
  *
  * @author Diego
  */
-@Named(value = "pessoaController")
+@ManagedBean(name = "pessoaController")
 @SessionScoped
 public class PessoaController implements Serializable {
 
@@ -27,7 +27,7 @@ public class PessoaController implements Serializable {
      * Creates a new instance of PessoaController
      */
     @EJB
-    PessoaDao dao;
+    PessoaDAO dao;
     private Pessoa entidade,filtro;
     
     private List<Pessoa> listagem;
@@ -46,15 +46,14 @@ public class PessoaController implements Serializable {
         entidade = new Pessoa();
         return "editarPessoa.xhtml";
     }
-
-    public PessoaDao getDao() {
+    
+    public PessoaDAO getDao() {
         return dao;
     }
 
-    public void setDao(PessoaDao dao) {
+    public void setDao(PessoaDAO dao) {
         this.dao = dao;
     }
-    
 
     public Pessoa getEntidade() {
         return entidade;

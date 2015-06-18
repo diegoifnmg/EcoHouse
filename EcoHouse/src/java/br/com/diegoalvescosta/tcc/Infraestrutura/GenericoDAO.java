@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Maike Jordan
+ * @author Diego Alves
  */
 public abstract class GenericoDAO<T> {
 

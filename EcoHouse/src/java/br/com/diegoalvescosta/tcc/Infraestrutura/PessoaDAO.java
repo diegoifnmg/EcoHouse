@@ -5,7 +5,6 @@
  */
 package br.com.diegoalvescosta.tcc.Infraestrutura;
 
-import br.com.diegoalvescosta.tcc.DomainModel.IPessoaRepositorio;
 import br.com.diegoalvescosta.tcc.DomainModel.Pessoa;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -16,14 +15,12 @@ import javax.persistence.Query;
  * @author diego-dell
  */
 @Stateless
-public class PessoaDao extends GenericoDAO<Pessoa> implements IPessoaRepositorio{
+public class PessoaDAO extends GenericoDAO<Pessoa>{
 
-    
-    public PessoaDao() {
+    public PessoaDAO() {
         super(Pessoa.class);
     }
-    
-    
+
     @Override
     public List<Pessoa> Buscar(Pessoa obj) {
         String Consulta = "select l from Pessoa l";
@@ -33,5 +30,5 @@ public class PessoaDao extends GenericoDAO<Pessoa> implements IPessoaRepositorio
         Query q = manager.createQuery(Consulta);
         return q.getResultList();
     }
-    
+
 }
